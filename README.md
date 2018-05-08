@@ -27,7 +27,7 @@ Add Unisender API key to the `config/services.php` file:
 ],
 ```
 
-This key will be used as default key for all notifications. You can always override it for required notifications.
+This key will be used as default key for all notifications. You can always override it for concrete notifications.
 
 ## Documentation
 
@@ -53,12 +53,12 @@ class SubscriptionActivatedNotification extends Notification
     {
         return (new UnisenderMessage)
             ->from('Laravel')
-            ->content('You subscription is active!');
+            ->content('Your subscription is active!');
     }
 }
 ```
 
-Also, you `Notifiable` classes must have the `routeNotificationForUnisender` method, which should return single phone number (E.164 format) or list of phone numbers (comma-separated or in array).
+Also, your `Notifiable` classes must have the `routeNotificationForUnisender` method, which should return single phone number (E.164 format) or list of phone numbers (comma-separated or in array).
 
 ```php
 <?php
